@@ -26,32 +26,31 @@ function App() {
   }, []);
 
   const ApiTesting = () => {
-      fetchDataFromApi("/movie/popular").then((res)=>{
+  
+    fetchDataFromApi("/configuration").then((res) => {
         console.log(res);
-        dispatch(getApiConfiguration(res));
-      });
-    // fetchDataFromApi("/configuration").then((res) => {
-    //     console.log(res);
 
-    //     const url = {
-    //         backdrop: res.images.secure_base_url + "original",
-    //         poster: res.images.secure_base_url + "original",
-    //         profile: res.images.secure_base_url + "original",
-    //     };
+        const url = {
+            backdrop: res.images.secure_base_url + "original",
+            poster: res.images.secure_base_url + "original",
+            profile: res.images.secure_base_url + "original",
+        };
 
-    //     dispatch(getApiConfiguration(url));
-    // });
+        dispatch(getApiConfiguration(url));
+    });
   };
   return ( 
     <>
       <Router>
+        <Header />
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/header' element={<Header />}/>
-          <Route path='/footer' element={<Footer />}/>
-          <Route path='/explore' element={<Explore />}/>
-          <Route path='/notFound' element={<PageNotFound />}/>
+          <Route path='/:mediaType/:id' element={<Details />}/>
+          <Route path='/search/:query' element={<SearchResult />}/>
+          <Route path='/explore/:mediaType' element={<Explore />}/>
+          <Route path='*' element={<PageNotFound />}/>
         </Routes>
+        <Footer />
       </Router>
     </>
   )

@@ -3,7 +3,9 @@ import './details.scss'
 
 const Details = () => {
   return (
-    <div>Details</div>
+    <div>Details
+      this is details why you're not showing 
+    </div>
   )
 }
 
