@@ -42,9 +42,19 @@ function ProductionHouse() {
 
     ]
   return (
-    <div>
+    <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        // border: '1px solid red',
+
+     }}>
         {productionHouseList.map((item)=>(
-            <span key={item.id}>
+            <div key={item.id} style={{
+                // border: '1px solid yellow',
+                margin: '10px',
+                marginLeft : '25px'
+        
+             }}>
                  <video src={item.video} autoPlay loop playsInline muted style={{
                     // border: '1px solid red',
                     width: '15vw',
@@ -60,7 +70,7 @@ function ProductionHouse() {
                      opacity: 1,
                 }} /> 
                
-            </span>
+            </div>
         ))}
     </div>
   )
