@@ -35,7 +35,7 @@ const MainBanner = () => {
       </div>}
       <div className="opacity-layer"></div>
       <ContentWrapper><div className='MainBannerContent'>
-          <span className='title'>Swagat Hai!</span>
+          <span className='title'>Movie Mingle!</span>
           <span className='subTitle'>
             Millions of Experiences 
             with hundereds of movies and TV-Shows
