@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Carousel from "../../../components/carousel/Carousel";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import SwitchTabs from "../../../components/SwitchTabs/SwitchTabs";
-import './trending.scss'
 import useFetch from "../../../hooks/useFetch";
 
 const Trending = () => {

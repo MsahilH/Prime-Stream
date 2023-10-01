@@ -11,7 +11,6 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../LazyloadImg/LazyLoadImg";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../circleRating/CircleRating";
-import Genres from "../genres/Genres";
 
 import "./carousalstyle.scss";
 
@@ -83,9 +82,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                                 1
                                             )}
                                         />
-                                        <Genres
-                                            data={item.genre_ids.slice(0, 2)}
-                                        />
+                                        {console.log('this is data inside genres',data)}
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
