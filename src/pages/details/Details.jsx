@@ -2,7 +2,7 @@ import React from 'react'
 import './details.scss'
 
 const Details = () => {
-  return (
+    return (
     <div>Details</div>
   )
 }
