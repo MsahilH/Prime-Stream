@@ -93,9 +93,9 @@ const Header = () => {
                     >
                         TV Shows
                     </li>
-                    <li className="menuItem">
+                    {/* <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
-                    </li>
+                    </li> */}
                 </ul>
 
                 <div className="mobileMenuItems">

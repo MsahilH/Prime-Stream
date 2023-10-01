@@ -1,7 +1,9 @@
 @import "../../mixin.scss";
 .carousel {
+    overflow-x: auto;
     margin-bottom: 50px;
     .contentWrapper {
+        overflow-x: auto;
         position: relative;
     }
     .carouselTitle {
@@ -12,10 +14,10 @@
     }
     .arrow {
         font-size: 30px;
-        color: black;
+        color: white;
         position: absolute;
         top: 44%;
-        transform: translateY(-50%);
+        // transform: translateY(-50%);
         cursor: pointer;
         opacity: 0.5;
         z-index: 1;
@@ -24,13 +26,15 @@
             display: block;
         }
         &:hover {
-            opacity: 0.8;
+            color: black;
         }
     }
     .carouselLeftNav {
+        overflow-x: auto;
         left: 30px;
     }
     .carouselRighttNav {
+        overflow-x: auto;
         right: 30px;
     }
     .loadingSkeleton {
@@ -79,7 +83,7 @@
     .carouselItems {
         display: flex;
         gap: 10px;
-        overflow-y: hidden;
+        overflow-x: auto !important;
         margin-right: -20px;
         margin-left: -20px;
         padding: 0 20px;
