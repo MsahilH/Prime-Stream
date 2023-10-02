@@ -43,14 +43,18 @@ function ProductionHouse() {
     ]
   return (
     <div style={{
+        overflowX: 'auto',
         display: 'flex',
         flexDirection: 'row',
+    
+        
         // border: '1px solid red',
 
      }}>
         {productionHouseList.map((item)=>(
             <div key={item.id} style={{
                 // border: '1px solid yellow',
+                overflowX: 'auto !important',
                 margin: '10px',
                 marginLeft : '25px'
         
@@ -72,7 +76,7 @@ function ProductionHouse() {
                
             </div>
         ))}
-    </div>
+    </div> 
   )
 }
 

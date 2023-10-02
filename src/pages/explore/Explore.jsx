@@ -10,7 +10,7 @@ import Spinner from "../../components/spinner/Spinner";
 
 import './explore.scss'
 
-let filters = {};
+let filters = {}; // filter updates when catogaries added.
 
 const sortbyData = [
   { value: "popularity.desc", label: "Popularity Descending" },
