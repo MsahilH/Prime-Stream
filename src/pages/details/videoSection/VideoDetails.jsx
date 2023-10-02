@@ -1,30 +1,68 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import "./style.scss";
+import React, { useState } from "react";
 
-import useFetch from "../../hooks/useFetch";
-import DetailsBanner from "./detailsBanner/DetailsBanner";
-import Cast from "./cast/Cast";
-import VideosSection from "./videosSection/VideosSection";
-import Similar from "./carousels/Similar";
-import Recommendation from "./carousels/Recommendation";
+import "./videoStyle.scss";
 
-const Details = () => {
-    const { mediaType, id } = useParams();
-    const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
-    const { data: credits, loading: creditsLoading } = useFetch(
-        `/${mediaType}/${id}/credits`
-    );
+import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
+import VideoPopup from "../../../components/videoPopup/VideoPopup";
+import Img from "../../../components/LazyloadImg/LazyLoadImg";
+import { PlayIcon } from "../Playbtn";
+
+const VideosSection = ({ data, loading }) => {
+    const [show, setShow] = useState(false);
+    const [videoId, setVideoId] = useState(null);
+
+    const loadingSkeleton = () => {
+        return (
+            <div className="skItem">
+                <div className="thumb skeleton"></div>
+                <div className="row skeleton"></div>
+                <div className="row2 skeleton"></div>
+            </div>
+        );
+    };
 
     return (
-        <div>
-            <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
-            <Cast data={credits?.cast} loading={creditsLoading} />
-            <VideosSection data={data} loading={loading} />
-            <Similar mediaType={mediaType} id={id} />
-            <Recommendation mediaType={mediaType} id={id} />
+        <div className="videosSection">
+            <ContentWrapper>
+                <div className="sectionHeading">Official Videos</div>
+                {!loading ? (
+                    <div className="videos">
+                        {data?.results?.map((video) => (
+                            <div
+                                key={video.id}
+                                className="videoItem"
+                                onClick={() => {
+                                    setVideoId(video.key);
+                                    setShow(true);
+                                }}
+                            >
+                                <div className="videoThumbnail">
+                                    <Img
+                                        src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
+                                    />
+                                    <PlayIcon />
+                                </div>
+                                <div className="videoTitle">{video.name}</div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="videoSkeleton">
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                    </div>
+                )}
+            </ContentWrapper>
+            <VideoPopup
+                show={show}
+                setShow={setShow}
+                videoId={videoId}
+                setVideoId={setVideoId}
+            />
         </div>
     );
 };
 
-export default Details;
+export default VideosSection;
