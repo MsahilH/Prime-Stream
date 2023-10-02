@@ -8,7 +8,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Details from './pages/details/Details';
 import Explore from './pages/explore/Explore';
-
+import SearchReasult from './pages/searchresult/SearchReasult.jsx';
 import PageNotFound from './pages/404/PageNotFound';
 import Home from './pages/home/Home'
 
@@ -27,7 +27,6 @@ function App() {
   const ApiTesting = () => {
   
     fetchDataFromApi("/configuration").then((res) => {
-        console.log(res);
 
         const url = {
             backdrop: res.images.secure_base_url + "original",
@@ -45,6 +44,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/:mediaType/:id' element={<Details />}/>
+          <Route path='/search/:query' element={<SearchReasult />} />
           <Route path='/explore/:mediaType' element={<Explore />}/>
           <Route path='*' element={<PageNotFound />}/>
         </Routes>

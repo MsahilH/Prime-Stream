@@ -23,7 +23,7 @@ const Header = () => {
     }, [location]);
 
     const controlNavbar = () => {
-        if (window.scrollY > 300) {
+        if (window.scrollY > 200) {
             if (window.scrollY > lastScrollY && !mobileMenu) {
                 setShow("hide");
             } else {
@@ -93,9 +93,9 @@ const Header = () => {
                     >
                         TV Shows
                     </li>
-                    {/* <li className="menuItem">
+                    <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
-                    </li> */}
+                    </li>
                 </ul>
 
                 <div className="mobileMenuItems">

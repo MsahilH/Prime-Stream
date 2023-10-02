@@ -82,7 +82,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                                 1
                                             )}
                                         />
-                                        {console.log('this is data inside genres',data)}
+    
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">

@@ -16,14 +16,12 @@ const MainBanner = () => {
 
   useEffect(()=>{
     const bg = url.backdrop + data?.results[Math.floor(Math.random()*20)]?.backdrop_path;
-    console.log('this is set Bakcground :: ',bg);
     setBackground(bg);
   },[data]);
-  console.log('this is background',data?.results[0]?.backdrop_path);
-  console.log("this is data and loading ",data?.results);
+
 
   const searchQueryHandler = (event) =>{
-    if(event.key == 'Enter' && query.length>0){
+    if(event.key === 'Enter' && query.length>0){
       navigate(`/search/${query}`);
     }
   }
@@ -42,13 +40,14 @@ const MainBanner = () => {
             discover,
             Explore more.</span>
           <div className='searchInput'>
+            
             <input 
-            type='text' 
+            type="text" 
             placeholder='Search for movie or tv-show...'
-            onKeyUp={searchQueryHandler}
             onChange={(e)=>setQuery(e.target.value)}
+            onKeyUp={searchQueryHandler}  
             />
-            <button onClick={searchQueryHandler}>Search</button>
+            <button>Search</button>
           </div>
         </div>
         </ContentWrapper>
